@@ -1,0 +1,213 @@
+{
+    "layoutComponentName": "PlainLayoutComponent",
+    "formName": "Register",
+    "class": "container",
+    "dataSource": {
+        "type": "GraphQL",
+        "query": "{ contact(id: $id) { id userName mobile email birthday password confirmPassword } } ",
+        "mutation": "mutation { updateContact(contact: ${contact}) { id: id userName: userName mobile: mobile email: email birthday: birthday password: password confirmPassword: confirmPassword} }"
+    },
+    "pages": [{
+        "structure": "12",
+        "template": {
+            "title": "header",
+            "body": {
+                "gridTemplateColumns": "1fr",
+                "gridTemplateRows": "",
+                "gridTemplateAreas": "\"ID1_1\""
+            },
+            "reRender": false
+        },
+        "sections": [{
+            "components": [{
+                "schema": "contact.lastName",
+                "label": "Register",
+                "componentName": "FormQLLabelComponent",
+                "type": "text",
+                "order": 1,
+                "position": {
+                    "id": "ID1_1",
+                    "index": 1,
+                    "type": 1
+                },
+                "componentId": "0af1e87f-19fe-e6e0-80ca-f1d512b889ec",
+                "rules": {},
+                "value": null,
+                "style": {
+                    "text-align": "center",
+                    "padding": "0px",
+                    "margin": "20px 0",
+                    "font-family": "Roboto,'Helvetica Neue',sans-serif"
+                }
+            }, {
+                "schema": "contact.userName",
+                "label": "UserName",
+                "class": "mobile",
+                "componentName": "FormQLMatFormFieldComponent",
+                "type": "text",
+                "order": 1,
+                "position": {
+                    "id": "ID1_1",
+                    "index": 0,
+                    "type": 2
+                },
+                "componentId": "f3ba55e9-20b3-db67-2099-22a9108bcd47",
+                "rules": {
+                    "readonly": {
+                        "key": "readonly",
+                        "condition": "  ",
+                        "value": null
+                    },
+                    "required": {
+                        "key": "required",
+                        "condition": "true",
+                        "value": null,
+                        "errorMessage": "Please enter userName"
+                    }
+                },
+                "value": null
+            }, {
+                "schema": "contact.mobile",
+                "label": "Mobile",
+                "class": "mobile",
+                "componentName": "FormQLMatFormFieldComponent",
+                "type": "text",
+                "order": 1,
+                "position": {
+                    "id": "ID2_1",
+                    "index": 0,
+                    "type": 2
+                },
+                "componentId": "0af1e87f-29fe-e6e0-80ca-f1d512b889ec",
+                "rules": {
+                    "required": {
+                        "key": "required",
+                        "condition": "true",
+                        "value": null
+                    }
+                },
+                "value": null
+            }, {
+                "schema": "contact.email",
+                "label": "Email",
+                "class": "mobile",
+                "componentName": "FormQLMatFormFieldComponent",
+                "type": "text",
+                "order": 1,
+                "position": {
+                    "id": "ID3_1",
+                    "index": 0,
+                    "type": 2
+                },
+                "componentId": "bb22abb9-0fd0-fa7b-ff0a-50e2c2031970",
+                "conditions": {},
+                "rules": {},
+                "value": null
+            }, {
+                "schema": "contact.birthday",
+                "label": "Birthday",
+                "class": "mobile",
+                "componentName": "FormQLMatFormFieldComponent",
+                "type": "text",
+                "order": 1,
+                "position": {
+                    "id": "ID3_1",
+                    "index": 0,
+                    "type": 2
+                },
+                "componentId": "666bd62b-b83a-9b67-43b9-03cf7daa2dcb",
+                "rules": {},
+                "value": null
+            }, {
+                "schema": "contact.password",
+                "label": "Password",
+                "class": "mobile",
+                "componentName": "FormQLMatFormFieldComponent",
+                "type": "password",
+                "order": 1,
+                "position": {
+                    "id": "ID3_1",
+                    "index": 0,
+                    "type": 2
+                },
+                "componentId": "786bd62b-b83a-9b67-43b9-03cf7daa2dcb",
+                "rules": {
+                    "required": {
+                        "key": "required",
+                        "condition": "true",
+                        "value": null
+                    }
+                },
+                "value": null
+            }, {
+                "schema": "contact.confirmPassword",
+                "label": "Confirm Password",
+                "class": "mobile",
+                "componentName": "FormQLMatFormFieldComponent",
+                "type": "password",
+                "order": 1,
+                "position": {
+                    "id": "ID3_1",
+                    "index": 0,
+                    "type": 2
+                },
+                "componentId": "776bd62b-b83a-9b67-43b9-03cf7daa2dcb",
+                "rules": {
+                    "required": {
+                        "key": "required",
+                        "condition": "true",
+                        "value": null
+                    }
+                },
+                "value": null
+            }, {
+                "label": "Save",
+                "class": "mobile",
+                "componentName": "FormQLMatButtonComponent",
+                "type": "text",
+                "order": 1,
+                "position": {
+                    "id": "ID3_1",
+                    "index": 0,
+                    "type": 2
+                },
+                "componentId": "786bd72b-b83a-9b67-43b9-03cf7daa2dcb",
+                "rules": {},
+                "action": {
+                    "key": "save"
+                },
+                "value": null
+            }],
+            "position": {
+                "id": "ID1_1",
+                "index": 0
+            },
+            "sectionId": "1d3fcbe3-a029-ca5e-4791-9666155fff0f",
+            "headerStyle": {
+                "font-size": "1.2rem",
+                "border-bottom": "2px solid #3F51B5",
+                "margin-bottom": "10px",
+                "color": "#3F51B5"
+            },
+            "template": {
+                "title": "header",
+                "header": {
+                    "hidden": false,
+                    "style": null,
+                    "gridTemplateColumns": "1fr",
+                    "gridTemplateAreas": "\"ID1_1\""
+                },
+                "body": {
+                    "hidden": false,
+                    "gridTemplateColumns": "1fr",
+                    "style": null,
+                    "gridTemplateRows": "",
+                    "gridTemplateAreas": "\"ID1_1\" \"ID2_1\" \"ID3_1\" \"ID4_1\""
+                },
+                "reRender": false
+            },
+            "sectionName": "Contact Information"
+        }],
+        "pageId": "f83c2ca3-1259-aa95-e817-61321a04713d"
+    }]
+}

@@ -1,0 +1,341 @@
+{
+    "layoutComponentName": "PlainLayoutComponent",
+    "formName": "register",
+    "class": "container",
+    "dataSource": {
+        "type": "GraphQL",
+        "query": "{ register(id: $id) { id userName mobile email birthday password confirmPassword } } ",
+        "mutation": "mutation { updateregister(register: ${register}) { id: id userName: userName mobile: mobile email: email birthday: birthday password: password confirmPassword: confirmPassword} }"
+    },
+    "pages": [
+        {
+            "structure": "12",
+            "template": {
+                "title": "header",
+                "body": {
+                    "gridTemplateColumns": "1fr",
+                    "gridTemplateRows": "",
+                    "gridTemplateAreas": "\"ID1_1\""
+                },
+                "reRender": false
+            },
+            "sections": [
+                {
+                    "components": [
+                        {
+                            "schema": "register.lastName",
+                            "label": "用户注册",
+                            "componentName": "FormQLLabelComponent",
+                            "type": "text",
+                            "order": 1,
+                            "position": {
+                                "id": "ID1_1",
+                                "index": 1,
+                                "type": 1
+                            },
+                            "componentId": "0af1e87f-19fe-e6e0-80ca-f1d512b889ec",
+                            "rules": {},
+                            "value": null,
+                            "style": {
+                                "text-align": "center",
+                                "padding": "0px",
+                                "margin": "20px 0",
+                                "font-family": "Roboto,'Helvetica Neue',sans-serif",
+                                "font-weight": "bold",
+                                "font-size": "20px"
+                            }
+                        },
+                        {
+                            "schema": "register.userName.value",
+                            "label": "用户名",
+                            "class": "mobile",
+                            "componentName": "FormQLMatFormFieldComponent",
+                            "type": "text",
+                            "order": 1,
+                            "position": {
+                                "id": "ID1_1",
+                                "index": 0,
+                                "type": 2
+                            },
+                            "componentId": "f3ba55e9-20b3-db67-2099-22a9108bcd47",
+                            "rules": {
+                                "readonly": {
+                                    "key": "readonly",
+                                    "condition": "  ",
+                                    "value": null
+                                },
+                                "required": {
+                                    "key": "required",
+                                    "condition": "true",
+                                    "errorMessage": "请输入用户名"
+                                },
+                                "minLength": {
+                                    "key": "minLength",
+                                    "condition": "register.userName.minLength",
+                                    "errorMessage": "请输入2-10位的用户名"
+                                },
+                                "maxLength": {
+                                    "key": "maxLength",
+                                    "condition": "register.userName.maxLength",
+                                    "errorMessage": "请输入2-10位的用户名"
+                                }
+                            },
+                            "value": null
+                        },
+                        {
+                            "schema":"register.industry",
+                            "label": "行业",
+                            "class": "mobile",
+                            "componentName": "FormQLMatSelectComponent",
+                            "type":"select",
+                            "order": 1,
+                            "position": {
+                                "id":"ID1_1",
+                                "type":2
+                            },
+                            "rules": {
+                                "required": {
+                                    "key": "required",
+                                    "condition": "true",
+                                    "value": null,
+                                    "errorMessage": "请选择行业"
+                                }
+                            },
+                            "configuration": [{
+                                "name": "制造业",
+                                "value": 0
+                            },{
+                                "name": "餐饮",
+                                "value": 0
+                            },{
+                                "name": "保险业",
+                                "value": 0
+                            },{
+                                "name": "快递行业",
+                                "value": 0
+                            },{
+                                "name": "媒体行业",
+                                "value": 0
+                            }]
+                        },
+                        {
+                            "schema": "register.mobile.value",
+                            "label": "手机号码",
+                            "class": "mobile",
+                            "componentName": "FormQLMatFormFieldComponent",
+                            "type": "text",
+                            "order": 1,
+                            "position": {
+                                "id": "ID2_1",
+                                "index": 0,
+                                "type": 2
+                            },
+                            "componentId": "0af1e87f-29fe-e6e0-80ca-f1d512b889ec",
+                            "rules": {
+                                "required": {
+                                    "key": "required",
+                                    "condition": "true",
+                                    "value": null,
+                                    "errorMessage": "请输入手机号"
+                                },
+                                "pattern": {
+                                    "key": "pattern",
+                                    "condition": "register.mobile.pattern",
+                                    "errorMessage": "请输入11位合法的手机号"
+                                }
+                            },
+                            "value": null
+                        },
+                        {
+                            "schema": "register.email.value",
+                            "label": "电子邮箱",
+                            "class": "mobile",
+                            "componentName": "FormQLMatFormFieldComponent",
+                            "type": "text",
+                            "order": 1,
+                            "position": {
+                                "id": "ID3_1",
+                                "index": 0,
+                                "type": 2
+                            },
+                            "componentId": "bb22abb9-0fd0-fa7b-ff0a-50e2c2031970",
+                            "conditions": {},
+                            "rules": {
+                                "required": {
+                                    "key": "required",
+                                    "condition": "true",
+                                    "value": null,
+                                    "errorMessage": "请输入邮箱地址"
+                                },
+                                "pattern": {
+                                    "key": "pattern",
+                                    "condition": "register.email.pattern",
+                                    "errorMessage": "请输入合法的邮箱地址"
+                                }
+                            },
+                            "value": null
+                        },
+                        {
+                            "schema": "register.birthday",
+                            "label": "生日",
+                            "class": "mobile",
+                            "componentName": "FormQLMatDatepickerComponent",
+                            "type": "date",
+                            "order": 1,
+                            "position": {
+                                "id": "ID3_1",
+                                "index": 0,
+                                "type": 2
+                            },
+                            "componentId": "666bd62b-b83a-9b67-43b9-03cf7daa2dcb",
+                            "rules": {},
+                            "value": null,
+                            "params": {
+                                "startView": "year",
+                                "touchUi": true
+                            }
+                        },
+                        {
+                            "schema": "register.sex",
+                            "label": "性别",
+                            "componentName": "FormqlRadioGroupComponent",
+                            "position": {
+                                "id": "ID3_1",
+                                "type": 2
+                            },
+                            "class": "mobile",
+                            "configuration": [
+                                {
+                                    "name": "男",
+                                    "value": "1"
+                                },
+                                {
+                                    "name": "女",
+                                    "value": "2"
+                                },
+                                {
+                                    "name": "未知",
+                                    "value": "3"
+                                }
+                            ]
+                        },
+                        {
+                            "schema": "register.password",
+                            "label": "密码",
+                            "class": "mobile",
+                            "componentName": "FormQLMatFormFieldComponent",
+                            "type": "password",
+                            "order": 1,
+                            "position": {
+                                "id": "ID3_1",
+                                "index": 0,
+                                "type": 2
+                            },
+                            "componentId": "786bd62b-b83a-9b67-43b9-03cf7daa2dcb",
+                            "rules": {
+                                "required": {
+                                    "key": "required",
+                                    "condition": "true",
+                                    "value": null,
+                                    "errorMessage": "请输入密码"
+                                }
+                            },
+                            "value": null
+                        },
+                        {
+                            "schema": "register.confirmPassword",
+                            "label": "确认密码",
+                            "class": "mobile",
+                            "componentName": "FormQLMatFormFieldComponent",
+                            "type": "password",
+                            "order": 1,
+                            "position": {
+                                "id": "ID3_1",
+                                "index": 0,
+                                "type": 2
+                            },
+                            "componentId": "776bd62b-b83a-9b67-43b9-03cf7daa2dcb",
+                            "rules": {
+                                "required": {
+                                    "key": "required",
+                                    "condition": "true",
+                                    "value": null,
+                                    "errorMessage": "请再次输入密码"
+                                }
+                            },
+                            "value": null
+                        },
+                        
+                        {
+                            "schema": "register.isreaded",
+                            "label": "已阅读并同意《鼎捷云用户使用协议》",
+                            "componentName": "FormQLMatCheckboxComponent",
+                            "class": "mobile",
+                            "type": "checkbox",
+                            "order": 4,
+                            "position": {
+                                "id": "ID3_1",
+                                "type": 2
+                            },
+                            "rules": {
+                                "requiredTrue": {
+                                    "key": "requiredTrue",
+                                    "condition": " ",
+                                    "errorMessage": "请您先阅读规则"
+                                }
+                            }
+                        },
+                        {
+                            "label": "Save",
+                            "class": "mobile",
+                            "componentName": "FormQLMatButtonComponent2",
+                            "type": "text",
+                            "order": 1,
+                            "position": {
+                                "id": "ID3_1",
+                                "index": 0,
+                                "type": 2
+                            },
+                            "componentId": "786bd72b-b83a-9b67-43b9-03cf7daa2dcb",
+                            "rules": {},
+                            "action": {
+                                "key": "validateAndSave"
+                            },
+                            "value": null
+                        }
+                    ],
+                    "position": {
+                        "id": "ID1_1",
+                        "index": 0
+                    },
+                    "sectionId": "1d3fcbe3-a029-ca5e-4791-9666155fff0f",
+                    "headerStyle": {
+                        "font-size": "1.2rem",
+                        "border-bottom": "2px solid #3F51B5",
+                        "margin-bottom": "10px",
+                        "color": "#3F51B5"
+                    },
+                    "template": {
+                        "title": "header",
+                        "header": {
+                            "hidden": false,
+                            "style": null,
+                            "gridTemplateColumns": "1fr",
+                            "gridTemplateAreas": "\"ID1_1\""
+                        },
+                        "body": {
+                            "hidden": false,
+                            "gridTemplateColumns": "1fr",
+                            "style": null,
+                            "gridTemplateRows": "",
+                            "gridTemplateAreas": "\"ID1_1\" \"ID2_1\" \"ID3_1\" \"ID4_1\""
+                        },
+                        "reRender": false
+                    },
+                    "sectionName": "register Information"
+                }
+            ],
+            "pageId": "f83c2ca3-1259-aa95-e817-61321a04713d"
+        }
+    ]
+}

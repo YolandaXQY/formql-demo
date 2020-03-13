@@ -1,0 +1,23 @@
+{
+    "register": {
+        "userName": {
+            "value": "娜娜",
+            "maxLength": 10,
+            "minLength": 2
+        },
+        "industry": "0",
+        "mobile": {
+            "value": "13823456789",
+            "pattern": "^[1][1-9]{2}[1-9]{4}[1-9]{4}$"
+        },
+        "email": {
+            "value": "13823456789@163.com",
+            "pattern": "^([a-z0-9A-Z]+[-|\\.]?)+[a-z0-9A-Z]@([a-z0-9A-Z]+(-[a-z0-9A-Z]+)?\\.)+[a-zA-Z]{2,}$"
+        },
+        "sex": "2",
+        "birthday": "2010-06-08T16:00:00.000Z",
+        "password": "123456",
+        "confirmPassword": "1234556",
+        "isreaded": true
+    }
+}

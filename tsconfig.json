@@ -1,0 +1,53 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": "./",
+    "outDir": "./dist/out-tsc",
+    "sourceMap": true,
+    "declaration": false,
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "target": "es2015",
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "lib": [
+      "es2018",
+      "dom"
+    ],
+    "paths": {
+      "@formql/core": [
+        "packages/core/src/public_api"
+      ],
+      "@formql/editor": [
+        "packages/editor/src/public_api"
+      ],
+      "@formql/material": [
+        "packages/material/src/public_api"
+      ],
+      "@dw-form-qlcomponents": [
+        "projects/dw-form-qlcomponents/src/public_api"
+      ],
+      "dw-form-qlcomponents": [
+        "dist/dw-form-qlcomponents/dw-form-qlcomponents",
+        "dist/dw-form-qlcomponents"
+      ],
+      "material-components": [
+        "dist/material-components/material-components",
+        "dist/material-components"
+      ],
+      "ant-components": [
+        "dist/ant-components/ant-components",
+        "dist/ant-components"
+      ]
+    }
+  },
+  "angularCompilerOptions": {
+    "fullTemplateTypeCheck": true,
+    "strictInjectionParameters": true,
+    "enableIvy": false
+  }
+}

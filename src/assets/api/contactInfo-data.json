@@ -1,0 +1,23 @@
+{
+    "contact": {
+        "customerName": "王先生",
+        "contactPerson": "李女士",
+        "mobile": {
+            "value": "13823456789",
+            "pattern": "^[1][1-9]{2}[1-9]{4}[1-9]{4}$"
+        },
+        "email": {
+            "value": "13823456789@163.com",
+            "pattern": "^([a-z0-9A-Z]+[-|\\.]?)+[a-z0-9A-Z]@([a-z0-9A-Z]+(-[a-z0-9A-Z]+)?\\.)+[a-zA-Z]{2,}$"
+        },
+        "productName": null,
+        "count": {
+            "value":null,
+            "maxLength": 9
+        },
+        "price": {
+            "value":null,
+            "maxLength": 9
+        }
+    }
+}

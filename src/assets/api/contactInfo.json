@@ -1,0 +1,457 @@
+{
+    "layoutComponentName": "PlainLayoutComponent",
+    "formName": "contactInfo",
+    "class": "container",
+    "dataSource": {
+        "type": "GraphQL",
+        "query": "{ contact(id: $id) { id firstName lastName email mobile addressLine1 addressLine2 addressCity addressPostCode } } ",
+        "mutation": "mutation { updateContact(contact: ${contact}) { id: id firstName: firstName lastName: lastName email: email mobile: mobile addressPostCode:addressPostCode addressLine1:addressLine1 addressLine2:addressLine2 addressCity:addressCity  } }"
+    },
+    "pages": [
+        {
+            "structure": "12",
+            "class": "pc",
+            "template": {
+                "title": "header",
+                "body": {
+                    "gridTemplateColumns": "1fr",
+                    "gridTemplateRows": "",
+                    "gridTemplateAreas": "\"ID1_1\" \"ID2_1\" \"ID3_1\""
+                },
+                "reRender": false
+            },
+            "sections": [
+                {
+                    "components": [
+                        {
+                            "label": "客户基本信息",
+                            "componentName": "FormQLLabelComponent",
+                            "type": "text",
+                            "order": 1,
+                            "position": {
+                                "id": "ID1_1",
+                                "index": 1,
+                                "type": 1
+                            },
+                            "componentId": "0af1e87f-19fe-e6e0-80ca-f1d512b889ec",
+                            "rules": {},
+                            "value": null,
+                            "style": {
+                                "padding": "0px",
+                                "margin": "10px",
+                                "border-bottom": "3px solid",
+                                "font-family": "Roboto,'Helvetica Neue',sans-serif",
+                                "font-weight": "bold"
+                            }
+                        },
+                        {
+                            "schema": "contact.customerName",
+                            "label": "客户名称",
+                            "componentName": "FormQLMatFormFieldComponent",
+                            "type": "text",
+                            "order": 1,
+                            "position": {
+                                "id": "ID1_1",
+                                "index": 0,
+                                "type": 2
+                            },
+                            "componentId": "f3ba55e9-20b3-db67-2099-22a9108bcd47",
+                            "rules": {
+                                "readonly": {
+                                    "key": "readonly",
+                                    "condition": "  ",
+                                    "value": null
+                                },
+                                "required": {
+                                    "key": "required",
+                                    "condition": "true",
+                                    "value": null,
+                                    "errorMessage": "Please enter first name"
+                                }
+                            },
+                            "value": null
+                        },
+                        {
+                            "schema": "contact.contactPerson",
+                            "label": "联系人",
+                            "componentName": "FormQLMatFormFieldComponent",
+                            "type": "text",
+                            "order": 1,
+                            "position": {
+                                "id": "ID1_2",
+                                "index": 0,
+                                "type": 2
+                            },
+                            "componentId": "0af1e87f-29fe-e6e0-80ca-f1d512b889ec",
+                            "rules": {
+                                "required": {
+                                    "key": "required",
+                                    "condition": "true",
+                                    "value": null
+                                }
+                            },
+                            "value": null
+                        },
+                        {
+                            "schema": "contact.mobile.value",
+                            "label": "手机号码",
+                            "componentName": "FormQLMatFormFieldComponent",
+                            "type": "text",
+                            "order": 1,
+                            "position": {
+                                "id": "ID2_2",
+                                "index": 0,
+                                "type": 2
+                            },
+                            "componentId": "bb22abb9-0fd0-fa7b-ff0a-50e2c2031970",
+                            "conditions": {},
+                            "rules": {
+                                "required": {
+                                    "key": "required",
+                                    "condition": "true",
+                                    "errorMessage": "请输入手机号码"
+                                },
+                                "pattern": {
+                                    "key": "pattern",
+                                    "condition": "contact.mobile.pattern",
+                                    "errorMessage": "请输入11位合法的手机号码"
+                                }
+                            },
+                            "value": null
+                        },
+                        {
+                            "schema": "contact.email.value",
+                            "label": "邮箱地址",
+                            "componentName": "FormQLMatFormFieldComponent",
+                            "type": "text",
+                            "order": 1,
+                            "position": {
+                                "id": "ID2_1",
+                                "index": 0,
+                                "type": 2
+                            },
+                            "componentId": "776bd62b-b83a-9b67-43b9-03cf7daa2dcb",
+                            "rules": {
+                                "required": {
+                                    "key": "required",
+                                    "condition": "true",
+                                    "errorMessage": "请输入联系电话"
+                                },
+                                "pattern": {
+                                    "key": "pattern",
+                                    "condition": "contact.email.pattern",
+                                    "errorMessage": "请输入合法的邮箱地址"
+                                }
+                            },
+                            "value": null
+                        },
+                        {
+                            "componentId": "842329ce-9118-8865-f71e-f8f223150a1f",
+                            "label": "Add comments",
+                            "componentName": "FormQLMatCheckboxComponent",
+                            "position": {
+                                "id": "ID3_1",
+                                "index": 1,
+                                "type": 2
+                            },
+                            "rules": {},
+                            "value": null,
+                            "schema": "contact.addComments"
+                        },
+                        {
+                            "componentId": "ba201941-0126-0427-4d73-f1c2677aec04",
+                            "label": "Comments",
+                            "componentName": "FormQLMatTextareaComponent",
+                            "position": {
+                                "id": "ID4_1",
+                                "index": 0,
+                                "type": 2
+                            },
+                            "rules": {
+                                "hidden": {
+                                    "key": "hidden",
+                                    "condition": "typeof contact !== 'object' || (contact && contact.addComments !== true)",
+                                    "value": null
+                                }
+                            },
+                            "value": null,
+                            "schema": "contact.comments"
+                        }
+                    ],
+                    "position": {
+                        "id": "ID1_1",
+                        "index": 0
+                    },
+                    "sectionId": "1d3fcbe3-a029-ca5e-4791-9666155fff0f",
+                    "headerStyle": {
+                        "font-size": "1.2rem",
+                        "border-bottom": "2px solid #3F51B5",
+                        "margin-bottom": "10px",
+                        "color": "#3F51B5"
+                    },
+                    "template": {
+                        "title": "header",
+                        "header": {
+                            "hidden": false,
+                            "style": null,
+                            "gridTemplateColumns": "1fr",
+                            "gridTemplateAreas": "\"ID1_1\""
+                        },
+                        "body": {
+                            "hidden": false,
+                            "gridTemplateColumns": "1fr 1fr",
+                            "style": null,
+                            "gridTemplateRows": "",
+                            "gridTemplateAreas": "\"ID1_1 ID1_2\" \"ID2_1 ID2_2\" \"ID3_1 ID3_1\" \"ID4_1 ID4_1\""
+                        },
+                        "reRender": false
+                    },
+                    "sectionName": "Contact Information"
+                },
+                {
+                    "components": [
+                        {
+                            "schema": "contact.productName",
+                            "label": "产品信息",
+                            "componentName": "FormQLLabelComponent",
+                            "type": "text",
+                            "order": 1,
+                            "position": {
+                                "id": "ID1_1",
+                                "index": 2,
+                                "type": 1
+                            },
+                            "componentId": "0af1e87f-09fe-e6e0-80ca-f1d512b889ec",
+                            "rules": {},
+                            "value": null,
+                            "style": {
+                                "padding": "0px",
+                                "margin": "10px",
+                                "border-bottom": "3px solid",
+                                "font-family": "Roboto,'Helvetica Neue',sans-serif",
+                                "font-weight": "bold"
+                            }
+                        },
+                        {
+                            "schema": "contact.goodCategory",
+                            "label": "商品分类",
+                            "componentName": "FormQLMatSelectComponent",
+                            "order": 1,
+                            "position": {
+                                "id": "ID1_1",
+                                "type": 2
+                            },
+                            "rules": {
+                                "required": {
+                                    "key": "required",
+                                    "condition": "true",
+                                    "errorMessage": "请选择商品分类"
+                                }
+                            },
+                            "configuration": [
+                                {
+                                    "name": "应用",
+                                    "value": "app"
+                                },
+                                {
+                                    "name": "服务",
+                                    "value": "service"
+                                },
+                                {
+                                    "name": "套装软件",
+                                    "value": "package"
+                                }
+                            ]
+                        },
+                        {
+                            "schema": "contact.goodCode",
+                            "label": "商品名称",
+                            "componentName": "FormQLMatSelectComponent",
+                            "order": 1,
+                            "type": "select",
+                            "position": {
+                                "id": "ID1_3",
+                                "type": 2
+                            },
+                            "rules": {
+                                "required": {
+                                    "key": "required",
+                                    "condition": "true",
+                                    "errorMessage": "请选择商品"
+                                }
+                            },
+                            "dataSource": "api",
+                            "apiAddress": "https://www.studyinghome.com/mock/5e67336b1328351ac71c20cb/example/goodcategory/${contact.goodCategory}/list",
+                            "configuration": []
+                        },
+                        {
+                            "schema": "register.delivery",
+                            "label": "交期",
+                            "componentName": "FormQLMatDatepickerComponent",
+                            "type": "date",
+                            "order": 1,
+                            "position": {
+                                "id": "ID2_1",
+                                "index": 0,
+                                "type": 2
+                            },
+                            "componentId": "666bd62b-b83a-9b67-43b9-03cf7daa2dcb",
+                            "rules": {
+                                "required": {
+                                    "key": "required",
+                                    "condition": "true",
+                                    "errorMessage": "请输入交期"
+                                }
+                            },
+                            "value": null,
+                            "params": {
+                                "startView": "month"
+                            }
+                        },
+                        {
+                            "schema": "contact.price.value",
+                            "label": "单价",
+                            "componentName": "FormQLMatFormFieldComponent",
+                            "type": "number",
+                            "order": 1,
+                            "position": {
+                                "id": "ID2_3",
+                                "type": 2
+                            },
+                            "rules": {
+                                "required": {
+                                    "key": "required",
+                                    "condition": "true",
+                                    "errorMessage": "请输入单价"
+                                },
+                                "maxLength": {
+                                    "key": "maxLength",
+                                    "condition": "contact.price.maxLength",
+                                    "errorMessage": "请输入小于等于999999999的数字"
+                                }
+                            }
+                        },
+                        {
+                            "schema": "contact.count.value",
+                            "label": "数量",
+                            "componentName": "FormQLMatFormFieldComponent",
+                            "type": "number",
+                            "order": 1,
+                            "position": {
+                                "id": "ID2_2",
+                                "type": 2
+                            },
+                            "rules": {
+                                "required": {
+                                    "key": "required",
+                                    "condition": "true",
+                                    "errorMessage": "请输入数量"
+                                },
+                                "maxLength": {
+                                    "key": "maxLength",
+                                    "condition": "contact.count.maxLength",
+                                    "errorMessage": "请输入小于等于999999999的数字"
+                                }
+                            }
+                        },
+                        {
+                            "schema": "contact.money",
+                            "label": "总金额",
+                            "componentName": "FormQLMatFormFieldComponent",
+                            "type": "number",
+                            "order": 1,
+                            "position": {
+                                "id": "ID2_4",
+                                "type": 2
+                            },
+                            "rules": {
+                                "readonly": {
+                                    "key": "readonly",
+                                    "condition": "true",
+                                    "value": null
+                                },
+                                "value": {
+                                    "key": "value",
+                                    "condition": "contact.count.value*contact.price.value",
+                                    "value": null
+                                }
+                            }
+                        }
+                    ],
+                    "position": {
+                        "id": "ID2_1",
+                        "index": 0
+                    },
+                    "sectionId": "2d3fcbe3-a029-ca5e-4791-9666155fff0f",
+                    "headerStyle": {
+                        "font-size": "1.2rem",
+                        "border-bottom": "2px solid #3F51B5",
+                        "margin-bottom": "10px",
+                        "color": "#3F51B5"
+                    },
+                    "template": {
+                        "title": "header",
+                        "header": {
+                            "gridTemplateColumns": "1fr",
+                            "gridTemplateAreas": "\"ID1_1\""
+                        },
+                        "body": {
+                            "gridTemplateColumns": "1fr 1fr 1fr 1fr",
+                            "gridTemplateRows": "1fr",
+                            "gridTemplateAreas": "\"ID1_1 ID1_1 ID1_3 ID1_3\" \"ID2_1 ID2_2 ID2_3 ID2_4\""
+                        },
+                        "reRender": false
+                    },
+                    "sectionName": "Address Information"
+                },
+                {
+                    "components": [
+                        {
+                            "label": "Save",
+                            "componentName": "FormQLMatButtonComponent",
+                            "type": "text",
+                            "order": 1,
+                            "position": {
+                                "id": "ID1_3",
+                                "index": 0,
+                                "type": 2
+                            },
+                            "componentId": "786bd72b-b83a-9b67-43b9-03cf7daa2dcb",
+                            "rules": {},
+                            "action": {
+                                "key": "validateAndSave"
+                            },
+                            "value": null,
+                            "style": {
+                                "float": "right"
+                            }
+                        }
+                    ],
+                    "structure": "12",
+                    "position": {
+                        "id": "ID3_1",
+                        "index": 0
+                    },
+                    "sectionId": "3d3fcbe3-a029-ca5e-4791-9666155fff0f",
+                    "headerStyle": null,
+                    "template": {
+                        "title": "header",
+                        "header": {
+                            "gridTemplateColumns": "1fr",
+                            "gridTemplateAreas": "\"ID1_1\"",
+                            "hidden": false
+                        },
+                        "body": {
+                            "gridTemplateColumns": "1fr",
+                            "gridTemplateRows": "1fr",
+                            "gridTemplateAreas": "\"ID1_3\""
+                        },
+                        "reRender": false
+                    },
+                    "sectionName": ""
+                }
+            ],
+            "pageId": "f83c2ca3-1259-aa95-e817-61321a04713d"
+        }
+    ]
+}
