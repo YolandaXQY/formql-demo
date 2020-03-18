@@ -1,0 +1,34 @@
+<nz-table #basicTable [nzData]="data.tableBody">
+    <thead>
+        <tr>
+            <th *ngFor="let head of data.tableHead">{{head.name}}</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let body of basicTable.data">
+            <td *ngFor="let head of data.tableHead">
+                <span *ngIf="valueIsArray(body[head.key]), else OtherFieldTpl">
+                    <div [ngSwitch]="layout.childComponent[head.key]?.componentName">
+                        <div *ngSwitchCase="'aLink'">
+                            <lib-na-link-group [list]="body[head.key]"></lib-na-link-group>
+                        </div>
+                        <div *ngSwitchDefault>{{ body[head.key] }}</div>
+                    </div>
+                </span>
+                <ng-template #OtherFieldTpl>
+
+                    <div [ngSwitch]="layout.childComponent[head.key]?.componentName">
+                        <div *ngSwitchCase="'input'">
+                            <lib-na-input [property]="layout.childComponent[head.key]?.componentProperty" [(data)]="body[head.key]" (dataChange)="body[head.key] = $event"></lib-na-input>
+                        </div>
+                        
+                        <div *ngSwitchDefault>{{ body[head.key] }}</div>
+                    </div>
+                    
+                </ng-template>
+            </td>
+        </tr>
+    </tbody>
+</nz-table>
+
+<button nz-button (click)="onckickBtn()">饭的</button>

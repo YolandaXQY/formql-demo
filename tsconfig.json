@@ -42,12 +42,14 @@
       "ant-components": [
         "dist/ant-components/ant-components",
         "dist/ant-components"
+      ],
+      "dw-components": [
+        "dist/dw-components"
+      ],
+      "dw-components/*": [
+        "dist/dw-components/*"
       ]
     }
   },
-  "angularCompilerOptions": {
-    "fullTemplateTypeCheck": true,
-    "strictInjectionParameters": true,
-    "enableIvy": false
-  }
+  "angularCompilerOptions": {}
 }

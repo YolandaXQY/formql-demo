@@ -1,0 +1,4 @@
+<ng-container *ngFor="let item of list, let i = index, let last = last">
+    <lib-na-alink [data]="item.name"></lib-na-alink>
+    <nz-divider *ngIf="!last" nzType="vertical"></nz-divider>
+</ng-container>

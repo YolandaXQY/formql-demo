@@ -16,8 +16,7 @@ import { NgZorroAntdModule, NZ_I18N, en_US, zh_CN } from 'ng-zorro-antd';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { registerLocaleData } from '@angular/common';
 import zh from '@angular/common/locales/zh';
-import { DwFormQLComponentsModule } from 'projects/dw-form-qlcomponents/src/public-api';
-import { MaterialUIModule } from 'projects/dw-form-qlcomponents/src/lib/material-ui';
+import { DwComponentsModule } from 'projects/dw-components/src/projects';
 
 registerLocaleData(zh);
 
@@ -41,14 +40,17 @@ registerLocaleData(zh);
     FormsModule,
     NgZorroAntdModule,
     BrowserAnimationsModule,
-    DwFormQLComponentsModule,
-    MaterialUIModule
+
+    DwComponentsModule
   ],
 
   providers: [
     EndDataService,
     { provide: 'FormQLService', useClass: EndDataService},
     { provide: NZ_I18N, useValue: zh_CN }
+  ],
+  entryComponents: [
+    FormQLTestComponent
   ],
   bootstrap: [AppComponent]
 })

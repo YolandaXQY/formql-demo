@@ -13,11 +13,13 @@ import { zip } from 'rxjs';
 export class FormQLTestComponent implements OnInit {
 
     title = 'app';
-    mode: FormQLMode = FormQLMode.View;
-    ids: Array<string>;
-    formName: string;
+    @Input() mode: FormQLMode = FormQLMode.View;
+    @Input() ids: Array<string>;
+    @Input() formName: string;
     formResponse: any;
     dataResponse: any;
+
+     
 
     constructor(
         private route: ActivatedRoute,

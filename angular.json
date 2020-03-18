@@ -22,7 +22,7 @@
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
-            "aot": false,
+            "aot": true,
             "assets": [
               "src/favicon.ico",
               "src/assets",
@@ -131,46 +131,6 @@
         }
       }
     },
-    "dwFormQLComponents": {
-      "projectType": "library",
-      "root": "projects/dw-form-qlcomponents",
-      "sourceRoot": "projects/dw-form-qlcomponents/src",
-      "prefix": "lib",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
-          "options": {
-            "tsConfig": "projects/dw-form-qlcomponents/tsconfig.lib.json",
-            "project": "projects/dw-form-qlcomponents/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "projects/dw-form-qlcomponents/tsconfig.lib.prod.json"
-            }
-          }
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "projects/dw-form-qlcomponents/src/test.ts",
-            "tsConfig": "projects/dw-form-qlcomponents/tsconfig.spec.json",
-            "karmaConfig": "projects/dw-form-qlcomponents/karma.conf.js"
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/dw-form-qlcomponents/tsconfig.lib.json",
-              "projects/dw-form-qlcomponents/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
-        }
-      }
-    },
     "material-components": {
       "projectType": "library",
       "root": "projects/material-components",
@@ -243,6 +203,41 @@
             "tsConfig": [
               "projects/ant-components/tsconfig.lib.json",
               "projects/ant-components/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "dw-components": {
+      "projectType": "library",
+      "root": "projects/dw-components",
+      "sourceRoot": "projects/dw-components/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/dw-components/tsconfig.lib.json",
+            "project": "projects/dw-components/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/dw-components/src/test.ts",
+            "tsConfig": "projects/dw-components/tsconfig.spec.json",
+            "karmaConfig": "projects/dw-components/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/dw-components/tsconfig.lib.json",
+              "projects/dw-components/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"

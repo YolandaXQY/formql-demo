@@ -56,37 +56,27 @@ export class FormQLMatFormFieldComponent implements OnInit, ControlValueAccessor
         <FormValidator>{
             name: 'max',
             key: 'max',
-            validator: function (val: any) {
-                return Validators.max(Number(val))
-            }
+            validator: MaxValidator
         },
         <FormValidator>{
             name: 'min',
             key: 'min',
-            validator: function(val: any) {
-                return Validators.min(Number(val))
-            }
+            validator: MinValidator
         },
         <FormValidator>{
             name: 'minLength',
             key: 'minLength',
-            validator: function (val: any) {
-                return Validators.minLength(Number(val));
-            }
+            validator: MinLengthValidator
         },
         <FormValidator>{
             name: 'maxLength',
             key: 'maxLength',
-            validator: function (val: any) {
-                return Validators.maxLength(Number(val));
-            }
+            validator: MaxLengthValidator
         },
         <FormValidator>{
             name: 'pattern',
             key: 'pattern',
-            validator: function (val: any) {
-                return Validators.pattern(val);
-            }
+            validator: PatternValidator
         }
     ];
 
@@ -139,4 +129,24 @@ export class FormQLMatFormFieldComponent implements OnInit, ControlValueAccessor
     }
 
     registerOnTouched(fn: any): void { }
+}
+
+export function MaxValidator(val: any) {
+    return Validators.max(Number(val))
+}
+
+export function MinValidator(val: any) {
+    return Validators.min(Number(val))
+}
+
+export function MinLengthValidator(val: any) {
+    return Validators.minLength(Number(val));
+}
+
+export function MaxLengthValidator(val: any) {
+    return Validators.maxLength(Number(val));
+}
+
+export function PatternValidator(val: any) {
+    return Validators.pattern(val);
 }
